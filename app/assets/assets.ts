@@ -66,6 +66,7 @@ import client_2 from '@/public/images/clients/client-2.webp';
 import client_3 from '@/public/images/clients/client-3.webp';
 import client_4 from '@/public/images/clients/client-4.webp';
 import AvatarMe from '@/public/images/profile.png';
+import AvatarMeHome from '@/public/images/profile-home.png';
 import project_1 from '@/public/images/projects/project-1.webp';
 import project_2 from '@/public/images/projects/project-2.webp';
 import project_3 from '@/public/images/projects/project-3.webp';
@@ -76,6 +77,7 @@ export {
   athonLogo,
   athonLogoLight,
   AvatarMe,
+  AvatarMeHome,
   briefcaseIconley,
   briefcaseIconLight,
   calendarIcon,

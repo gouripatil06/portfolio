@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import Image from 'next/image';
 
 import {
-  AvatarMe,
+  AvatarMeHome,
   calendarIcon,
   calendarIconLight,
   emailIcon,
@@ -28,7 +28,7 @@ export default function HeroMain() {
     <section className='relative flex h-min w-full flex-none flex-col flex-nowrap items-center justify-start gap-5 overflow-visible p-0 lg:flex-row'>
       {/* Left side */}
       <div className='relative flex h-min w-full flex-none flex-col flex-nowrap items-start justify-center gap-2.5 self-start overflow-hidden p-0 md:w-min md:items-center'>
-        <AnimatedImageGrid image={AvatarMe} />
+        <AnimatedImageGrid image={AvatarMeHome} />
       </div>
       {/* Right side */}
       <div className='relative flex h-auto w-full flex-col items-start gap-2 p-0'>
