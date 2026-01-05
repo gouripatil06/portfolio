@@ -8,7 +8,8 @@ import {
   FileText,
   Code,
   FolderKanban,
-  Briefcase
+  Briefcase,
+  GraduationCap
 } from 'lucide-react';
 
 import {
@@ -106,6 +107,12 @@ export const pagesLists: pagesListsType[] = [
   },
   {
     id: 6,
+    title: 'Course Project',
+    href: '/course-project',
+    icon: <GraduationCap />,
+  },
+  {
+    id: 7,
     title: 'Contact',
     href: '/contact',
     icon: <Mail />,

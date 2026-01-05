@@ -1,9 +1,24 @@
+'use client';
 import { stackIcon, stackIconLight } from '@/app/assets/assets';
 import SectionHeading from '@/components/SectionHeading';
+import { assignmentsData } from '../assignments/_components/assignment-card';
 
 import TechnologySection from './_components/technology-section';
 
 export default function LearningPage() {
+  const getAssignmentsByTech = (techName: string) => {
+    if (!assignmentsData || !Array.isArray(assignmentsData)) {
+      return [];
+    }
+    return assignmentsData
+      .filter((assignment) => {
+        // Match exact or partial technology names (e.g., 'Express' matches 'Express.js')
+        return assignment.technologies.some((tech) => 
+          tech === techName || tech.includes(techName) || techName.includes(tech)
+        );
+      })
+      .map(({ id, title, deployedUrl, githubUrl }) => ({ id, title, deployedUrl, githubUrl }));
+  };
   return (
     <>
       <div className='relative flex h-min w-full flex-1 flex-col items-center justify-start gap-0 overflow-hidden p-0'>
@@ -31,18 +46,7 @@ export default function LearningPage() {
                 'HTML5 APIs',
                 'Meta Tags & SEO',
               ]}
-              assignments={[
-                {
-                  id: 1,
-                  title: 'Personal Blog Website',
-                  deployedUrl: 'blog.gouri.fun',
-                },
-                {
-                  id: 2,
-                  title: 'To-Do List Application',
-                  deployedUrl: 'todo.gouri.fun',
-                },
-              ]}
+              assignments={getAssignmentsByTech('HTML')}
               techName='html5'
             />
 
@@ -60,29 +64,7 @@ export default function LearningPage() {
                 'Bootstrap & Tailwind',
                 'Custom Properties',
               ]}
-              assignments={[
-                {
-                  id: 1,
-                  title: 'Personal Blog Website',
-                  deployedUrl: 'blog.gouri.fun',
-                },
-                {
-                  id: 2,
-                  title: 'To-Do List Application',
-                  deployedUrl: 'todo.gouri.fun',
-                },
-                {
-                  id: 4,
-                  title: 'Movie Search App',
-                  deployedUrl: 'movies.gouri.fun',
-                },
-                {
-                  id: 5,
-                  title: 'Restaurant Inventory Management System',
-                  deployedUrl: 'inventory.gouri.fun',
-                  githubUrl: 'https://github.com/gouripatil06/restaurant-inventory-api',
-                },
-              ]}
+              assignments={getAssignmentsByTech('CSS')}
               techName='css3'
             />
 
@@ -101,13 +83,7 @@ export default function LearningPage() {
                 'Array Methods',
                 'Object-Oriented JS',
               ]}
-              assignments={[
-                {
-                  id: 2,
-                  title: 'To-Do List Application',
-                  deployedUrl: 'todo.gouri.fun',
-                },
-              ]}
+              assignments={getAssignmentsByTech('JavaScript')}
               techName='javascript'
               customIcon={true}
               iconPath='/images/icons/js.png'
@@ -127,19 +103,7 @@ export default function LearningPage() {
                 'Environment Variables',
                 'Error Handling',
               ]}
-              assignments={[
-                {
-                  id: 3,
-                  title: 'Blog / Notes REST API',
-                  deployedUrl: 'https://blog-notes-api.onrender.com',
-                },
-                {
-                  id: 5,
-                  title: 'Restaurant Inventory Management System',
-                  deployedUrl: 'inventory.gouri.fun',
-                  githubUrl: 'https://github.com/gouripatil06/restaurant-inventory-api',
-                },
-              ]}
+              assignments={getAssignmentsByTech('Node.js')}
               techName='nodejs'
             />
 
@@ -158,19 +122,7 @@ export default function LearningPage() {
                 'CORS Configuration',
                 'Rate Limiting',
               ]}
-              assignments={[
-                {
-                  id: 3,
-                  title: 'Blog / Notes REST API',
-                  deployedUrl: 'https://blog-notes-api.onrender.com',
-                },
-                {
-                  id: 5,
-                  title: 'Restaurant Inventory Management System',
-                  deployedUrl: 'inventory.gouri.fun',
-                  githubUrl: 'https://github.com/gouripatil06/restaurant-inventory-api',
-                },
-              ]}
+              assignments={getAssignmentsByTech('Express')}
               techName='express'
               customIcon={true}
               iconPath='/images/icons/express.png'
@@ -191,14 +143,7 @@ export default function LearningPage() {
                 'Relationships',
                 'Aggregation',
               ]}
-              assignments={[
-                {
-                  id: 5,
-                  title: 'Restaurant Inventory Management System',
-                  deployedUrl: 'inventory.gouri.fun',
-                  githubUrl: 'https://github.com/gouripatil06/restaurant-inventory-api',
-                },
-              ]}
+              assignments={getAssignmentsByTech('MongoDB')}
               techName='mongodb'
             />
 
@@ -218,19 +163,7 @@ export default function LearningPage() {
                 'React Query',
                 'Context API',
               ]}
-              assignments={[
-                {
-                  id: 4,
-                  title: 'Movie Search App',
-                  deployedUrl: 'movies.gouri.fun',
-                },
-                {
-                  id: 5,
-                  title: 'Restaurant Inventory Management System',
-                  deployedUrl: 'inventory.gouri.fun',
-                  githubUrl: 'https://github.com/gouripatil06/restaurant-inventory-api',
-                },
-              ]}
+              assignments={getAssignmentsByTech('React')}
               techName='react'
             />
           </div>
