@@ -5,13 +5,20 @@ import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 interface DiagramImageProps {
-  src: string;
+  lightSrc: string;
+  darkSrc: string;
   alt: string;
-  isLightTheme?: boolean; // For images that are light-themed (like sequence_diagram)
   className?: string;
+  singleSrc?: string; // For images that don't have light/dark variants
 }
 
-export default function DiagramImage({ src, alt, isLightTheme = false, className }: DiagramImageProps) {
+export default function DiagramImage({ 
+  lightSrc, 
+  darkSrc, 
+  alt, 
+  className,
+  singleSrc 
+}: DiagramImageProps) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -20,21 +27,16 @@ export default function DiagramImage({ src, alt, isLightTheme = false, className
   if (!mounted) return null;
 
   const isDark = resolvedTheme === 'dark';
+  
+  // Use single source if provided, otherwise use theme-based source
+  const imageSrc = singleSrc || (isDark ? darkSrc : lightSrc);
 
-  // If image is light-themed, invert background in dark mode
-  // If image is dark-themed, use normal background
-  const containerClass = isLightTheme
-    ? isDark
-      ? 'bg-white p-4 rounded-lg' // Light image on dark background needs white container
-      : 'bg-gray-50 p-4 rounded-lg' // Light image on light background
-    : isDark
-      ? 'bg-dark-gray-4 p-4 rounded-lg' // Dark image on dark background
-      : 'bg-gray-100 p-4 rounded-lg'; // Dark image on light background
+  const containerClass = 'bg-dark-gray-4 dark:bg-dark-gray-4 p-4 rounded-lg border border-border-color';
 
   return (
     <div className={cn('relative w-full overflow-hidden', containerClass, className)}>
       <Image
-        src={src}
+        src={imageSrc}
         alt={alt}
         width={1200}
         height={800}

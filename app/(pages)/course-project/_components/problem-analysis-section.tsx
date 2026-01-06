@@ -18,14 +18,15 @@ export default function ProblemAnalysisSection() {
           <h3 className='text-light-gray-4 text-lg font-semibold mb-4'>Functional Requirements</h3>
           <div className='space-y-3'>
             {[
-              { title: 'User Registration/Login', desc: 'Secure sign-up and authentication to ensure user identity and data protection.' },
-              { title: 'SOS Trigger Module', desc: 'One-click emergency alert activation for immediate help.' },
-              { title: 'Location Tracking', desc: 'Automatic GPS fetching of users live location during emergencies.' },
-              { title: 'Alert Notification System', desc: 'Sends SMS and email alerts to emergency contacts and local authorities.' },
-              { title: 'Map Integration', desc: 'Displays real-time user location on a map for responders to track and assist.' },
-              { title: 'Admin Dashboard', desc: 'Enables police/NGO personnel to view, manage, and close active alerts.' },
-              { title: 'Alert Status Update', desc: 'Allows status transitions from Active → In Progress → Resolved for better tracking.' },
-              { title: 'Feedback & Reporting', desc: 'Users can provide post-event feedback or report false/misuse of alerts.' },
+              { title: 'User Registration/Login', desc: 'Secure sign-up and authentication with JWT tokens and cookie-based sessions. Role-based access for users, police, and admin.' },
+              { title: 'SOS Trigger Module', desc: 'One-click emergency alert activation with automatic GPS location sharing and real-time status tracking.' },
+              { title: 'Location Tracking', desc: 'Real-time GPS tracking with Leaflet map integration for displaying user location and route planning.' },
+              { title: 'Alert Notification System', desc: 'WhatsApp Business API integration to send emergency alerts to contacts. Real-time updates via Socket.io.' },
+              { title: 'Map Integration', desc: 'Leaflet and OpenStreetMap for displaying user location, safe routes, and safety indicators. Google Maps for navigation.' },
+              { title: 'Police Dashboard', desc: 'Comprehensive dashboard for police personnel to monitor alerts, manage reports, and respond to emergencies.' },
+              { title: 'Issue Reporting System', desc: 'Community issue reporting with categories, location tagging, status tracking, and feedback mechanism.' },
+              { title: 'Community Features', desc: 'Social feed with posts, likes, comments, and search to build a supportive safety community network.' },
+              { title: 'Safe Route & Travel Companion', desc: 'Map-based safe route planning and travel companion matching for safer travel experiences.' },
             ].map((req, index) => (
               <div key={index} className='bg-dark-gray-4 border-border-color rounded-lg border p-4'>
                 <h4 className='text-white font-medium mb-1'>{req.title}</h4>
@@ -144,22 +145,22 @@ export default function ProblemAnalysisSection() {
               {
                 actor: 'Female User (Primary End User)',
                 story: 'As a woman, I want to trigger an SOS alert instantly so that I can receive immediate assistance during an emergency.',
-                description: 'The female user can long-press an SOS button or shake the phone to activate an emergency alert. Once triggered, her real-time GPS location, audio/video recordings, and movement path are shared with the backend system. This information is automatically forwarded to the nearest police station and her trusted contacts.',
+                description: 'The female user can tap the SOS button on the home screen to activate an emergency alert. Once triggered, her real-time GPS location is automatically captured and shared with the backend system. WhatsApp notifications are sent to her emergency contacts with her location and details. The system provides real-time status updates showing alert progress.',
               },
               {
                 actor: 'Police Department (Responder)',
                 story: 'As police staff, I want to receive live SOS alerts with accurate location tracking so that I can respond quickly and reach the victim in time.',
-                description: 'When an SOS alert is triggered, police officers receive the victims&apos; details, current location, movement path, emergency contact information, and any recorded evidence. A dedicated dashboard displays live tracking on a map to help law enforcement teams dispatch a patrol unit.',
+                description: 'When an SOS alert is triggered, police officers receive alerts on their dedicated dashboard showing victim details, current GPS location, emergency contact information, and alert status. The dashboard displays all active alerts on a map interface, allowing officers to accept, track, and resolve alerts. Real-time updates are provided via Socket.io.',
               },
               {
-                actor: 'NGO / Support Organization',
-                story: 'As an NGO worker, I want to receive verified SOS alerts and case follow-up details so that I can provide emotional, legal, or rehabilitation support to the victim.',
-                description: 'NGOs receive alerts for confirmed or verified cases once the police mark them as authentic emergencies. The NGO dashboard allows workers to contact the victim, provide counseling, legal guidance, and support services.',
+                actor: 'Community User',
+                story: 'As a community member, I want to report safety issues and connect with other users so that we can collectively improve neighborhood safety.',
+                description: 'Users can report issues like broken streetlights, harassment hotspots, or unsafe areas with location tagging. They can also share posts, experiences, and safety tips in the community feed. The reporting system allows tracking of issue status and provides feedback mechanisms.',
               },
               {
                 actor: 'System Backend / Alert Engine',
                 story: 'As the system backend, I want to process alerts, route them to the correct authorities, and store evidence so that the system remains reliable, fast, and secure.',
-                description: 'The backend processes incoming SOS alerts using a real-time alert engine. It verifies the user location, maps the nearest police station, sends notifications to contacts, and stores all incident logs securely.',
+                description: 'The backend processes incoming SOS alerts using Express.js and MongoDB. It captures GPS location, sends WhatsApp notifications via Facebook Graph API, stores alert data securely, and provides real-time updates via Socket.io. The system handles authentication, authorization, and maintains alert status throughout the emergency lifecycle.',
               },
             ].map((userStory, index) => (
               <div key={index} className='bg-dark-gray-4 border-border-color rounded-lg border p-5'>

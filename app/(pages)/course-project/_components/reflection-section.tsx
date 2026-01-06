@@ -18,14 +18,17 @@ export default function ReflectionSection() {
           <h3 className='text-light-gray-4 text-lg font-semibold mb-4'>Learning Outcomes</h3>
           <div className='space-y-3'>
             {[
-              'Gained comprehensive understanding of full-stack web development using MERN stack',
-              'Learned to integrate AI/ML capabilities into web applications for real-time detection',
-              'Mastered real-time communication systems using WebRTC and Firebase',
-              'Developed skills in API design, RESTful architecture, and microservices',
-              'Gained experience in mobile-responsive design and cross-platform compatibility',
-              'Learned to implement secure authentication and authorization systems',
+              'Gained comprehensive understanding of full-stack web development using MERN stack (MongoDB, Express, React, Node.js)',
+              'Mastered real-time communication systems using Socket.io for live updates',
+              'Developed skills in RESTful API design and backend architecture with Express.js',
+              'Learned to integrate third-party APIs (WhatsApp Business API, Google Maps, OpenStreetMap)',
+              'Gained experience in map integration using Leaflet and React Leaflet',
+              'Learned to implement secure authentication and authorization with JWT and cookies',
+              'Developed skills in database design and MongoDB schema modeling',
+              'Gained experience in responsive UI design with Tailwind CSS and component libraries',
               'Understood the importance of user experience design in safety-critical applications',
-              'Gained knowledge in DevOps practices for deployment and maintenance',
+              'Learned state management and context API for complex application flows',
+              'Gained knowledge in version control, Git workflows, and collaborative development',
             ].map((outcome, index) => (
               <div key={index} className='bg-dark-gray-4 border-border-color rounded-lg border p-4'>
                 <p className='text-light-gray-2 text-sm'>{outcome}</p>
@@ -41,27 +44,31 @@ export default function ReflectionSection() {
             {[
               {
                 challenge: 'Real-time Location Tracking',
-                solution: 'Implemented continuous GPS updates with efficient battery management and fallback mechanisms',
+                solution: 'Implemented GPS location tracking with Leaflet maps, handling browser geolocation API, and providing fallback mechanisms for location access issues',
               },
               {
-                challenge: 'AI Model Integration',
-                solution: 'Overcame latency issues by optimizing model inference and implementing edge computing strategies',
+                challenge: 'WhatsApp API Integration',
+                solution: 'Integrated WhatsApp Business API (Facebook Graph API) for sending emergency alerts, handling API authentication, message formatting, and error handling',
               },
               {
-                challenge: 'Multi-channel Notification System',
-                solution: 'Ensured reliable delivery by implementing retry mechanisms and multiple notification providers',
+                challenge: 'Real-time Updates with Socket.io',
+                solution: 'Implemented Socket.io for real-time alert status updates between frontend and backend, ensuring police dashboard receives live updates when alerts are created or resolved',
               },
               {
-                challenge: 'Scalability and Performance',
-                solution: 'Designed microservices architecture and implemented caching strategies for high-traffic scenarios',
+                challenge: 'Map Integration and Routing',
+                solution: 'Integrated multiple map services (Leaflet/OpenStreetMap for display, Google Maps for directions), handling map initialization, markers, and route planning',
               },
               {
-                challenge: 'Security and Privacy',
-                solution: 'Implemented end-to-end encryption, secure authentication, and privacy-preserving location sharing',
+                challenge: 'Authentication and Authorization',
+                solution: 'Implemented JWT-based authentication with HTTP-only cookies, role-based access control (user, police, admin), and secure session management',
+              },
+              {
+                challenge: 'State Management and Context',
+                solution: 'Managed complex application state using React Context API for authentication and SOS alerts, ensuring consistent state across components',
               },
               {
                 challenge: 'Team Coordination',
-                solution: 'Established clear communication channels, daily standups, and defined sprint goals for effective collaboration',
+                solution: 'Established clear communication channels, daily standups, and defined sprint goals for effective collaboration using Scrum methodology',
               },
             ].map((item, index) => (
               <div key={index} className='bg-dark-gray-4 border-border-color rounded-lg border p-4'>
@@ -77,18 +84,22 @@ export default function ReflectionSection() {
           <h3 className='text-light-gray-4 text-lg font-semibold mb-4'>Skills Gained</h3>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
             {[
-              'Full-stack MERN development',
-              'AI/ML integration in web apps',
-              'Real-time communication systems',
-              'RESTful API design',
-              'Database design and optimization',
-              'Cloud deployment and DevOps',
-              'UI/UX design for safety apps',
+              'Full-stack MERN development (MongoDB, Express, React, Node.js)',
+              'Real-time communication with Socket.io',
+              'RESTful API design and development',
+              'Third-party API integration (WhatsApp, Maps)',
+              'Map integration with Leaflet and React Leaflet',
+              'Database design and MongoDB schema modeling',
+              'JWT authentication and authorization',
+              'React Context API and state management',
+              'TypeScript for type-safe development',
+              'Tailwind CSS and component-based UI design',
+              'Responsive web design',
               'Agile/Scrum methodology',
               'Version control with Git',
               'Testing and quality assurance',
               'Security best practices',
-              'Project management',
+              'Project management and collaboration',
             ].map((skill, index) => (
               <div key={index} className='bg-dark-gray-4 border-border-color rounded-lg border p-3'>
                 <p className='text-light-gray-2 text-sm'>{skill}</p>

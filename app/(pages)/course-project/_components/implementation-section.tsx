@@ -15,6 +15,28 @@ export default function ImplementationSection() {
       <div className='bg-very-dark-gray border-dark-gray-3 rounded-xl border p-6 sm:p-8'>
         <h2 className='text-light-gray-4 text-2xl font-bold mb-6'>Implementation</h2>
 
+        {/* Demo Recording */}
+        <div className='mb-8'>
+          <h3 className='text-light-gray-4 text-lg font-semibold mb-4'>Integrated System Demo</h3>
+          <div className='bg-dark-gray-4 border-border-color rounded-lg border p-6'>
+            <p className='text-light-gray-2 text-sm mb-4'>
+              Screen recording of the complete project demonstration showing all functionalities working together.
+            </p>
+            <div className='relative w-full aspect-video rounded-lg overflow-hidden bg-darkest-gray border border-border-color'>
+              <iframe
+                src='https://www.youtube.com/embed/sdnhUIcpiso?autoplay=1&mute=1&modestbranding=1&rel=0&controls=1'
+                title='Saheli 2.0 - Complete System Demo'
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                allowFullScreen
+                className='absolute top-0 left-0 w-full h-full'
+              />
+            </div>
+            <p className='text-light-gray-2 text-xs mt-3 text-center'>
+              Watch the complete demonstration of Saheli 2.0 features including SOS alerts, real-time tracking, police dashboard, and community features.
+            </p>
+          </div>
+        </div>
+
         {/* Module-wise Description */}
         <div className='mb-8'>
           <h3 className='text-light-gray-4 text-lg font-semibold mb-4'>Module-wise Description</h3>
@@ -22,35 +44,39 @@ export default function ImplementationSection() {
             {[
               {
                 module: 'User Authentication Module',
-                description: 'Secure registration and login system with JWT-based authentication. Handles user profile management and session management.',
+                description: 'Secure registration and login system with JWT-based authentication and cookie-based sessions. Handles user profile management, emergency contacts, and role-based access control (user, police, admin).',
               },
               {
                 module: 'SOS Alert Module',
-                description: 'Core emergency alert system with one-click activation, automatic location sharing, and multi-channel notification system (SMS, Email, Push).',
+                description: 'Core emergency alert system with one-click activation, automatic GPS location sharing, real-time status tracking, and WhatsApp notifications to emergency contacts.',
               },
               {
                 module: 'Location Tracking Module',
-                description: 'Real-time GPS tracking with map integration. Provides continuous location updates during emergencies and supports geofencing for safe zones.',
-              },
-              {
-                module: 'AI Distress Detection Module',
-                description: 'Voice and movement recognition using TensorFlow/PyTorch. Detects distress signals through audio analysis and motion sensors.',
+                description: 'Real-time GPS tracking with Leaflet map integration. Provides continuous location updates during emergencies, route planning, and displays user location on interactive maps.',
               },
               {
                 module: 'Notification System',
-                description: 'Multi-channel notification system using Firebase Cloud Messaging (FCM), Twilio SMS gateway, and email services for instant alerts.',
+                description: 'WhatsApp Business API integration for sending emergency alerts to contacts. Real-time updates via Socket.io for live alert status changes and police dashboard notifications.',
               },
               {
-                module: 'Admin Dashboard',
-                description: 'Comprehensive dashboard for police and NGO personnel to monitor, manage, and respond to active alerts with real-time updates.',
+                module: 'Police Dashboard',
+                description: 'Comprehensive dashboard for police personnel to monitor active SOS alerts, manage reports, track officer assignments, and respond to emergencies with real-time updates.',
               },
               {
                 module: 'Map Integration Module',
-                description: 'Google Maps API integration for displaying user location, nearby police stations, safe zones, and generating safety index heatmaps.',
+                description: 'Leaflet and OpenStreetMap integration for displaying user location, route planning, and safety indicators. Google Maps API used for turn-by-turn directions and navigation.',
               },
               {
-                module: 'Feedback & Reporting Module',
-                description: 'Post-incident feedback system allowing users to report false alerts, provide incident details, and rate response effectiveness.',
+                module: 'Issue Reporting Module',
+                description: 'Community issue reporting system with categories (streetlight, harassment, unsafe areas), status tracking (Pending, Investigating, Resolved), location tagging, and feedback system with ratings.',
+              },
+              {
+                module: 'Community Features',
+                description: 'Social community feed with posts, likes, comments, and search functionality. Enables users to share safety tips, experiences, and build a supportive community network.',
+              },
+              {
+                module: 'Safe Route & Travel Companion',
+                description: 'Map-based safe route planning with safety indicators and travel companion matching system to find nearby users for safer travel experiences.',
               },
             ].map((mod, index) => (
               <div key={index} className='bg-dark-gray-4 border-border-color rounded-lg border p-4'>
@@ -58,32 +84,6 @@ export default function ImplementationSection() {
                 <p className='text-light-gray-2 text-sm leading-relaxed'>{mod.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Screenshots Section - Placeholder */}
-        <div className='mb-8'>
-          <h3 className='text-light-gray-4 text-lg font-semibold mb-4'>Application Screenshots</h3>
-          <div className='bg-dark-gray-4 border-border-color rounded-lg border p-6 text-center'>
-            <p className='text-light-gray-2 text-sm'>
-              Screenshots of different pages and functionalities will be added here.
-            </p>
-            <p className='text-light-gray-2 text-xs mt-2'>
-              This section will include UI screenshots of login, SOS trigger, dashboard, map view, and admin panels.
-            </p>
-          </div>
-        </div>
-
-        {/* Demo Recording */}
-        <div className='mb-8'>
-          <h3 className='text-light-gray-4 text-lg font-semibold mb-4'>Integrated System Demo</h3>
-          <div className='bg-dark-gray-4 border-border-color rounded-lg border p-6 text-center'>
-            <p className='text-light-gray-2 text-sm mb-4'>
-              Screen recording of the complete project demonstration showing all functionalities working together.
-            </p>
-            <div className='bg-darkest-gray rounded-lg p-8 border border-border-color'>
-              <p className='text-light-gray-2 text-sm'>Demo video will be embedded here</p>
-            </div>
           </div>
         </div>
 

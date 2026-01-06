@@ -54,11 +54,15 @@ export default function TestingSection() {
               <tbody>
                 {[
                   { id: 'TC001', case: 'User Registration', result: 'User successfully registered with valid credentials', status: 'Pass' },
-                  { id: 'TC002', case: 'SOS Alert Trigger', result: 'SOS alert sent to all emergency contacts', status: 'Pass' },
-                  { id: 'TC003', case: 'Location Tracking', result: 'Real-time location accurately tracked and displayed', status: 'Pass' },
-                  { id: 'TC004', case: 'Notification Delivery', result: 'SMS and email notifications sent successfully', status: 'Pass' },
-                  { id: 'TC005', case: 'Admin Dashboard Access', result: 'Authorized personnel can view and manage alerts', status: 'Pass' },
-                  { id: 'TC006', case: 'AI Distress Detection', result: 'Voice/movement detection triggers alert correctly', status: 'Pass' },
+                  { id: 'TC002', case: 'User Login', result: 'User successfully logged in with JWT authentication', status: 'Pass' },
+                  { id: 'TC003', case: 'SOS Alert Trigger', result: 'SOS alert created and sent to emergency contacts via WhatsApp', status: 'Pass' },
+                  { id: 'TC004', case: 'Location Tracking', result: 'Real-time GPS location accurately tracked and displayed on map', status: 'Pass' },
+                  { id: 'TC005', case: 'WhatsApp Notification', result: 'Emergency alerts sent successfully via WhatsApp Business API', status: 'Pass' },
+                  { id: 'TC006', case: 'Police Dashboard Access', result: 'Authorized police personnel can view and manage alerts', status: 'Pass' },
+                  { id: 'TC007', case: 'Issue Reporting', result: 'Users can report safety issues with location tagging', status: 'Pass' },
+                  { id: 'TC008', case: 'Community Posts', result: 'Users can create posts, like, and comment in community feed', status: 'Pass' },
+                  { id: 'TC009', case: 'Safe Route Planning', result: 'Map-based route planning with safety indicators works correctly', status: 'Pass' },
+                  { id: 'TC010', case: 'Real-time Updates', result: 'Socket.io provides real-time alert status updates', status: 'Pass' },
                 ].map((testCase, index) => (
                   <tr key={index} className='border-b border-border-color'>
                     <td className='py-2 px-4 text-light-gray-2'>{testCase.id}</td>
@@ -93,19 +97,6 @@ export default function TestingSection() {
                 <p className='text-light-gray-2 text-sm'>{tool.purpose}</p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Test Results */}
-        <div>
-          <h3 className='text-light-gray-4 text-lg font-semibold mb-4'>Test Results</h3>
-          <div className='bg-dark-gray-4 border-border-color rounded-lg border p-6 text-center'>
-            <p className='text-light-gray-2 text-sm mb-4'>
-              Screenshots of test execution results and coverage reports will be added here.
-            </p>
-            <div className='bg-darkest-gray rounded-lg p-8 border border-border-color'>
-              <p className='text-light-gray-2 text-sm'>Test result screenshots will be displayed here</p>
-            </div>
           </div>
         </div>
       </div>
