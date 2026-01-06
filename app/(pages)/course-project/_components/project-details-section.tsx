@@ -1,5 +1,7 @@
 'use client';
 import { motion } from 'motion/react';
+import { Globe, Server, Github, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ProjectDetailsSection() {
   return (
@@ -12,6 +14,57 @@ export default function ProjectDetailsSection() {
     >
       <div className='bg-very-dark-gray border-dark-gray-3 rounded-xl border p-6 sm:p-8'>
         <h2 className='text-light-gray-4 text-2xl font-bold mb-6'>Course Project Details</h2>
+
+        {/* Deployment & Repository Links */}
+        <div className='mb-8'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+            <div className='bg-dark-gray-4 border-border-color rounded-lg border p-4'>
+              <div className='flex items-center gap-3 mb-2'>
+                <Globe className='text-blue-400' size={18} />
+                <h4 className='text-white font-semibold text-sm'>Frontend</h4>
+              </div>
+              <Link
+                href='https://saheli.gouri.fun'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-blue-400 hover:text-blue-300 flex items-center gap-1.5 text-xs font-medium'
+              >
+                <ExternalLink size={12} />
+                saheli.gouri.fun
+              </Link>
+            </div>
+            <div className='bg-dark-gray-4 border-border-color rounded-lg border p-4'>
+              <div className='flex items-center gap-3 mb-2'>
+                <Server className='text-green-400' size={18} />
+                <h4 className='text-white font-semibold text-sm'>Backend</h4>
+              </div>
+              <Link
+                href='https://saheli-backend.ambitiousbeach-2ed48d61.southeastasia.azurecontainerapps.io'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-green-400 hover:text-green-300 flex items-center gap-1.5 text-xs font-medium'
+              >
+                <ExternalLink size={12} />
+                Azure API
+              </Link>
+            </div>
+            <div className='bg-dark-gray-4 border-border-color rounded-lg border p-4'>
+              <div className='flex items-center gap-3 mb-2'>
+                <Github className='text-light-gray-2' size={18} />
+                <h4 className='text-white font-semibold text-sm'>Repository</h4>
+              </div>
+              <Link
+                href='https://github.com/gouripatil06/Saheli-2.0'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-blue-400 hover:text-blue-300 flex items-center gap-1.5 text-xs font-medium'
+              >
+                <ExternalLink size={12} />
+                View on GitHub
+              </Link>
+            </div>
+          </div>
+        </div>
 
         {/* Project Title */}
         <div className='mb-8'>

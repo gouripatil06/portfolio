@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'motion/react';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Server, Globe } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ImplementationSection() {
@@ -14,6 +14,49 @@ export default function ImplementationSection() {
     >
       <div className='bg-very-dark-gray border-dark-gray-3 rounded-xl border p-6 sm:p-8'>
         <h2 className='text-light-gray-4 text-2xl font-bold mb-6'>Implementation</h2>
+
+        {/* Deployment Information */}
+        <div className='mb-8'>
+          <h3 className='text-light-gray-4 text-lg font-semibold mb-4'>Deployment</h3>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+            <div className='bg-dark-gray-4 border-border-color rounded-lg border p-4'>
+              <div className='flex items-center gap-3 mb-3'>
+                <Globe className='text-blue-400' size={20} />
+                <h4 className='text-white font-semibold text-sm'>Frontend</h4>
+              </div>
+              <p className='text-light-gray-2 text-xs mb-3'>
+                Deployed on Hostinger
+              </p>
+              <Link
+                href='https://saheli.gouri.fun'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-blue-400 hover:text-blue-300 flex items-center gap-2 text-xs font-medium'
+              >
+                <ExternalLink size={14} />
+                saheli.gouri.fun
+              </Link>
+            </div>
+            <div className='bg-dark-gray-4 border-border-color rounded-lg border p-4'>
+              <div className='flex items-center gap-3 mb-3'>
+                <Server className='text-green-400' size={20} />
+                <h4 className='text-white font-semibold text-sm'>Backend API</h4>
+              </div>
+              <p className='text-light-gray-2 text-xs mb-3'>
+                Deployed on Azure Container Apps
+              </p>
+              <Link
+                href='https://saheli-backend.ambitiousbeach-2ed48d61.southeastasia.azurecontainerapps.io'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-green-400 hover:text-green-300 flex items-center gap-2 text-xs font-medium'
+              >
+                <ExternalLink size={14} />
+                Azure Container Apps
+              </Link>
+            </div>
+          </div>
+        </div>
 
         {/* Demo Recording */}
         <div className='mb-8'>
@@ -98,7 +141,7 @@ export default function ImplementationSection() {
                   GitHub repository containing the complete source code for Saheli 2.0
                 </p>
                 <Link
-                  href='https://github.com/gouripatil06/saheli-2.0'
+                  href='https://github.com/gouripatil06/Saheli-2.0'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='text-blue-400 hover:text-blue-300 flex items-center gap-2 text-sm font-medium'
